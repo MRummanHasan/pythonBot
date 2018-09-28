@@ -55,15 +55,4 @@ while True:
     else:
         print("I did not understand what you said")
 
-
-# sql = 'SELECT * FROM `timings`;'
-# a.execute(sql)
-# data = a.fetchall()
-# print(data)
-
-# i = 0
-# for entry in data:
-#     print("Dr. "+ str(entry[0]) +"\n "+ str(entry[1]) +"\n "+ str(entry[2])[-5:] +" to "+ str(entry[3]) +"\n "+ str(entry[4])+"\n")
-#     # for e in entry:
-#         # print(e)
-#         # i = i + 1
+# Happy Time with Bot
