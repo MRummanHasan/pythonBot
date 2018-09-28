@@ -1,6 +1,7 @@
 import pymysql
 import random
 
+## Install WAMPs/XAMP, make localhost
 # connection work
 conn = pymysql.connect(host='localhost', user='root', password='', db='doctor')
 a = conn.cursor()
@@ -11,12 +12,12 @@ greetings = ['hola', 'hello', 'hi', 'hi!', 'hey!', 'hey', 'salam']
 random_greeting = random.choice(greetings)
 question = ['How are you?', 'How are you doing?']
 
-goodResponses = ['okay', "i'm fine", 'good', 'fine']
+goodResponses = ['okay', "i'm fine", 'good', 'fine','ok']
 random_response = random.choice(goodResponses)
 
 docTypeQue = ['For what problem you want to see doctor?']
 docTypeResp = ['eye', 'nose', 'throat']
-docTypeAmbigiousResp = ["don't know", 'no idea', 'just feeling ill']
+
 
 # working logic
 while True:
@@ -35,7 +36,6 @@ while True:
                 sql = 'SELECT docName,docType,docTimeFrom,docTimeTo,docDay FROM `timings` WHERE docType = "ENT";'
                 a.execute(sql)
                 data = a.fetchall()
-                # print(data)
                 for entry in data:
                     print("Dr. " + str(entry[0]) + "\n " + str(entry[1]) + "\n " + str(
                         entry[2])[-5:] + " to " + str(entry[3]) + "\n " + str(entry[4])+"\n")
@@ -47,7 +47,6 @@ while True:
                 sql = 'SELECT docName,docType,docTimeFrom,docTimeTo,docDay FROM `timings` WHERE docType = "General";'
                 a.execute(sql)
                 data = a.fetchall()
-                # print(data)
                 for entry in data:
                     print("Dr. " + str(entry[0]) + "\n " + str(entry[1]) + "\n " + str(entry[2])[-5:] + " to " + str(entry[3]) + "\n " + str(entry[4])+"\n")
                 break
