@@ -3,7 +3,7 @@ import random
 
 ## Install WAMPs/XAMP, make localhost
 # connection work
-conn = pymysql.connect(host='localhost', user='root', password='', db='doctor')
+conn = pymysql.connect(host='localhost', user='root', password='', db='HealthSystem')
 a = conn.cursor()
 # end connection work
 
@@ -33,7 +33,7 @@ while True:
             if userInput.lower().strip() in docTypeResp:
                 print("No problem we shall connect you to " + userInput + " Specialist")
                 # execute query
-                sql = 'SELECT docName,docType,docTimeFrom,docTimeTo,docDay FROM `timings` WHERE docType = "ENT";'
+                sql = 'SELECT docName,docType,docTimeFrom,docTimeTo,docDay FROM `DoctorTimings` WHERE docType = "ENT";'
                 a.execute(sql)
                 data = a.fetchall()
                 for entry in data:
@@ -44,7 +44,7 @@ while True:
 
             else:
                 # General physician query
-                sql = 'SELECT docName,docType,docTimeFrom,docTimeTo,docDay FROM `timings` WHERE docType = "General";'
+                sql = 'SELECT docName,docType,docTimeFrom,docTimeTo,docDay FROM `DoctorTimings` WHERE docType = "General";'
                 a.execute(sql)
                 data = a.fetchall()
                 for entry in data:
